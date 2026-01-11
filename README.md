@@ -33,35 +33,29 @@ cd ssh_editor
 
 # Install dependencies
 go mod tidy
-
-# Compile
-go build -o ssh-editor
 ```
 
 ### Cross-platform compilation
 
 #### Windows (PowerShell)
 ```powershell
-# Linux
-$env:GOOS="linux"; $env:GOARCH="amd64"; go build -o ssh-editor-linux
-
-# macOS Intel
-$env:GOOS="darwin"; $env:GOARCH="amd64"; go build -o ssh-editor-macos
-
-# macOS ARM
-$env:GOOS="darwin"; $env:GOARCH="arm64"; go build -o ssh-editor-macos-arm
+# Depuis PowerShell
+$env:GOOS="windows"; $env:GOARCH="amd64"; go build -o ssh-editor.exe
 ```
 
 #### Linux/macOS (Bash)
 ```bash
 # Linux
-GOOS=linux GOARCH=amd64 go build -o ssh-editor-linux
+GOOS=linux GOARCH=amd64 go build -o ssh-editor
+chmod +x ssh-editor
 
 # macOS Intel
 GOOS=darwin GOARCH=amd64 go build -o ssh-editor-macos
+chmod +x ssh-editor-macos
 
 # macOS ARM
-GOOS=darwin GOARCH=arm64 go build -o ssh-editor-macos-arm
+GOOS=darwin GOARCH=arm64 go build -o ssh-editor-arm64
+chmod +x ssh-editor-arm64
 ```
 
 ## 📖 Usage
